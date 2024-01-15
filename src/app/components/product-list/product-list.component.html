@@ -1,6 +1,16 @@
-<ul>
-  <li>Apple</li>
-  <li>Banana</li>
-  <li>Coconut</li>
-  <li>Durian</li>
-</ul>
+<button (click)=" log('Clickety click!'); display = !display">Click Me</button>
+
+<div *ngIf="display">
+  <h2>Hello</h2>
+</div>
+
+<h3>Number of Products : {{ getNumberOfProducts() }}</h3>
+
+  <div *ngFor="let prod of products">
+    <h3>{{prod.name}}</h3>
+    <p>{{prod.price}}</p>
+    <p>Rating: {{prod.rating}}</p>
+    <img [src]="prod.imgUrl" alt="Product image for {{prod.name}}">
+    <hr>
+  </div>
+
