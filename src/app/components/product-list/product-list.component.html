@@ -4,6 +4,18 @@
   <h2>Hello</h2>
 </div>
 
+<h1>{{title}}</h1>
+<input type="text" name="title" [(ngModel)]="title" />
+<hr>
+
+<form>
+  <input [(ngModel)]="newProduct.name" type="text" name="name" placeholder="Name" /><br />
+  <input [(ngModel)]="newProduct.price" type="text" name="price" placeholder="Price" /><br />
+  <input [(ngModel)]="newProduct.imgUrl" type="text" name="imageUrl" placeholder="Image URL" /><br />
+  <input [(ngModel)]="newProduct.rating" type="number" name="rating" placeholder="rating" /><br />
+  <input (click)="onSubmit(newProduct)" type="submit" value="Add Item" />
+</form>
+
 <h3>Number of Products : {{ getNumberOfProducts() }}</h3>
 
   <div *ngFor="let prod of products">
