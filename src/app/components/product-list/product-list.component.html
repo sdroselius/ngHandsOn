@@ -1,4 +1,4 @@
-<button (click)=" log('Clickety click!'); display = !display">Click Me</button>
+<button class="btn btn-primary" (click)=" log('Clickety click!'); display = !display">Click Me</button>
 
 <div *ngIf="display">
   <h2>Hello</h2>
@@ -13,7 +13,7 @@
   <input [(ngModel)]="newProduct.price" type="text" name="price" placeholder="Price" /><br />
   <input [(ngModel)]="newProduct.imgUrl" type="text" name="imageUrl" placeholder="Image URL" /><br />
   <input [(ngModel)]="newProduct.rating" type="number" name="rating" placeholder="rating" /><br />
-  <input (click)="onSubmit(newProduct)" type="submit" value="Add Item" />
+  <input class="btn btn-info" (click)="onSubmit(newProduct)" type="submit" value="Add Item" />
 </form>
 
 <h3>Number of Products : {{ getNumberOfProducts() }}</h3>

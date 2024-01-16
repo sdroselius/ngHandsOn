@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { HelloWorldComponent } from './components/hello-world/hello-world.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { HrComponent } from './components/hr/hr.component';
+import { AccordionComponent } from './components/accordion/accordion.component';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,8 @@ import { HrComponent } from './components/hr/hr.component';
     RouterOutlet,
     HelloWorldComponent,
     ProductListComponent,
-    HrComponent
+    HrComponent,
+    AccordionComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
