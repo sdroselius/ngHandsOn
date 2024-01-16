@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/product';
 import { FormsModule } from '@angular/forms';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -13,40 +14,22 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit{
 
-  products: Product[] = [
-    new Product(
-      'Oh, The Places You\'ll Go!',
-      11.39,
-      'https://images-na.ssl-images-amazon.com/images/I/518eq5NjZkL._SY160_.jpg',
-      5
-    ),
-    new Product(
-      'The Giving Tree',
-      8.31,
-      'https://images-na.ssl-images-amazon.com/images/I/51XKHozHPEL._SY160_.jpg',
-      4
-    ),
-    new Product(
-      'Pete the Cat: Big Easter Adventure',
-      7.29,
-      'https://images-na.ssl-images-amazon.com/images/I/61VqwEXgCdL._AC_US218_.jpg',
-      4
-    ),
-    new Product(
-      'Harry Potter and the Chamber of Secrets',
-      8.99,
-      'https://images-na.ssl-images-amazon.com/images/I/51PFoq3WlaL._AC_US218_.jpg',
-      5
-    )
-  ];
+  products: Product[] = [];
 
   display = true;
   clickCount = 0;
   title = '';
   newProduct: Product = new Product();
 
+  constructor(
+    private productService: ProductService
+  ) {}
+
+  ngOnInit(): void {
+    this.products = this.productService.index();
+  }
   getNumberOfProducts(): number {
     return this.products.length;
   }
@@ -57,7 +40,7 @@ export class ProductListComponent {
 
   onSubmit(product: Product) {
     console.log(product);
-    this.products.push(product);
+    this.productService.create(product);
     this.newProduct = new Product();
   }
 
