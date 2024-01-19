@@ -3,3 +3,19 @@
 <h3>{{person.fname}} {{person.lname}}</h3>
 <p>{{person.age}}</p>
 <p>{{person.stateOfBirth}}</p>
+
+
+<div>{{12.5689898 | currency}}</div>
+<div>{{12.5689898 | currency:'JPY'}}</div>
+
+<div>{{157878.89899999 | number}}</div>
+<div>{{157878.89899999 | number:'1.1-2'}}</div>
+<div>{{.89899999 | number:'10.1-4'}}</div>
+<div>{{12.2| number: '1.5-5'}}</div>
+
+<div>{{1288323623006 | date:'shortDate'}}</div>
+<div>{{1288323623006 | date:'fullDate'}}</div>
+<div>{{'BANANA' | lowercase}}</div>
+
+<div>{{ {name:'fred', age: 74} | json}}</div>
+<div>{{person | json}}</div>
